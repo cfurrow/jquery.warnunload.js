@@ -50,7 +50,7 @@
         options.after();
         return ReturnMessage(); 
       }
-      return null;
+      // don't return anything.
     }
 
     function ReturnMessage()
@@ -70,6 +70,7 @@
     //Bind Exit Message Dialogue
     setupChangeEventsOnInputs(); 
     UnBindIgnores();
+    
     $(window).bind('beforeunload', DoWeShowConfirmMessage);
   };
 })(jQuery);
