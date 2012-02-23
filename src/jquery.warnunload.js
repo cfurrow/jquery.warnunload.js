@@ -13,7 +13,7 @@
       message:"Are you sure you want to leave this page?"
       ,urls:[]
       ,ignore:""
-      ,after:function(){},
+      ,after:function(){}
       ,onItem:function(item){return true;}};
     options = $.extend(DEFAULTS,options);
     var $inputs = $("input:text,input:checkbox,input:radio,select");
