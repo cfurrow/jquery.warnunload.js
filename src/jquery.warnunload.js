@@ -64,7 +64,7 @@
     }
 
     function UnBindIgnores(){
-      $(option.ignore).bind('click', UnBindWindow); 
+      $(options.ignore).bind('click', UnBindWindow); 
     }
 
     //Bind Exit Message Dialogue
