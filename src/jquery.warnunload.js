@@ -9,6 +9,7 @@
   if(typeof $ === "undefined" || $ === null){
     return;
   }
+
   function addIgnoreWarnToIgnore(options){
     if(options.ignore === null || options.ignore === ""){
       options.ignore = ".ignore-warn";
@@ -17,6 +18,7 @@
       options.ignore += ", .ignore-warn";
     }
   }
+
   $.warnUnload = function(options){
     var DEFAULTS = {
       message:"Are you sure you want to leave this page?",
@@ -34,7 +36,6 @@
       history.navigationMode = 'compatible';
     }catch(e){}
 
-
     function setupChangeEventsOnInputs(){
       $inputs.change(markAsChanged);
     }
@@ -42,7 +43,7 @@
     function markAsChanged(){
       $(this).attr("data-changed","true");
     }
- 
+
     function DoWeShowConfirmMessage(){
       var warn = false;
       // only show message if url matches location.href
@@ -68,7 +69,7 @@
     {
       return options.message;
     }
- 
+
     function unBindWindow()
     {
       $(window).unbind('beforeunload', DoWeShowConfirmMessage);
@@ -81,7 +82,7 @@
     //Bind Exit Message Dialogue
     setupChangeEventsOnInputs();
     unBindIgnores();
-    
+
     $(window).bind('beforeunload', DoWeShowConfirmMessage);
   };
 })(jQuery);
