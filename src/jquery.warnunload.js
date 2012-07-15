@@ -2,7 +2,7 @@
 * Class: warnUnload
 * Use: Warn user if data is unsaved when they try to browse away from current page
 * Author: Carl Furrow (http://carlfurrow.com)
-* Version: 0.0.2
+* Version: 0.1.0
 */
 /*global opera:true */
 (function($){

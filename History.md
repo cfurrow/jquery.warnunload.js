@@ -1,4 +1,10 @@
 
+0.1.0 / 2012-07-15 
+==================
+
+  * Adding demo. Fixing up url handling when null. Updated readme.
+  * Always ignore .ignore-warn elements. Changed function casing.
+
 0.0.2 / 2012-02-23 
 ==================
 
