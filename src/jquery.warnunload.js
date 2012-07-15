@@ -44,25 +44,37 @@
       $(this).attr("data-changed","true");
     }
 
-    function DoWeShowConfirmMessage(){
+    function checkInputs(){
       var warn = false;
-      // only show message if url matches location.href
-      $.each(options.urls,function(index,url){
-        if(location.href.indexOf(url) > 0){
-          $inputs.each(function(index,input){
-            var $input = $(input);
-            if($input.attr("data-changed") === "true" && options.onItem($input)){
-              warn = true;
-            }
-          });
+      $inputs.each(function(index,input){
+        var $input = $(input);
+        if($input.attr("data-changed") === "true" && options.onItem($input)){
+          warn = true;
+          return;
         }
       });
+      return warn;
+    }
+
+    function doWeShowConfirmMessage(){
+      var warn = false;
+      // only show message if url matches location.href
+      if(options.urls && options.urls.length > 0){
+        $.each(options.urls,function(index,url){
+          if(location.href.indexOf(url) > 0){
+            warn = checkInputs();
+          }
+        });
+      }
+      else{
+        warn = checkInputs();
+      }
 
       if(warn){
         options.after();
         return returnMessage();
       }
-      // don't return anything.
+      return;
     }
 
     function returnMessage()
@@ -72,7 +84,7 @@
 
     function unBindWindow()
     {
-      $(window).unbind('beforeunload', DoWeShowConfirmMessage);
+      $(window).unbind('beforeunload', doWeShowConfirmMessage);
     }
 
     function unBindIgnores(){
@@ -83,6 +95,6 @@
     setupChangeEventsOnInputs();
     unBindIgnores();
 
-    $(window).bind('beforeunload', DoWeShowConfirmMessage);
+    $(window).bind('beforeunload', doWeShowConfirmMessage);
   };
 })(jQuery);
