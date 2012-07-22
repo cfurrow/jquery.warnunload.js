@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Jquery.warnunload.js : Warn the user if they made changes that are not saved before letting them browse away." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Jquery.warnunload.js</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/cfurrow/jquery.warnunload.js">View on GitHub</a>
+
+          <h1 id="project_title">Jquery.warnunload.js</h1>
+          <h2 id="project_tagline">Warn the user if they made changes that are not saved before letting them browse away.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/cfurrow/jquery.warnunload.js/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/cfurrow/jquery.warnunload.js/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>jquery.warnunload.js</h1>
+
+<p>jquery.warnunload.js is a jQuery plugin that allows you to simply insert warnings to the user if they made changes to a page's inputs and then browse away before clicking save or update. This is done via the "onbeforeunload" event.</p>
+
+<h2>Usage</h2>
+
+<pre><code>$.warnUnload({
+      message:"Are you sure you want to leave this page without saving?", 
+      urls:["/Property/Edit","/Property/MoreInformation"],
+      ignore:["#Continue","#Done","#Cancel","#Delete"] 
+    });
+</code></pre>
+
+<h2>Demo</h2>
+
+<p>You can check out the demo in the ./demo directory.</p>
+
+<h2>Options</h2>
+
+<table>
+<tr>
+<th>Option</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+<tr>
+<td>message</td>
+            <td>string</td>
+            <td>"Are you sure you want to leave this page?"</td>
+            <td>
+              Message to display in confirm window (not supported in all
+              browsers)
+            </td>
+        </tr>
+<tr>
+<td>urls</td>
+            <td>array</td>
+            <td>[]</td>
+            <td>
+            Array of urls to track input changes and warn user if unsaved           changes will be lost. Only partial urls are needed as a check for           location.href.indexOf(url) is done. If current url is not listed, plugin does not warn user if changes will be lost.
+            </td>
+        </tr>
+<tr>
+<td>ignore</td>
+            <td>string</td>
+            <td>".ignore-warn"</td>
+            <td>
+            Comma-seperated list of jQuery selector queries to ignore 
+            warning the user. e.g. ".ignore, #save, input[type='submit']"
+            </td>
+        </tr>
+</table><h2>Does it work in all browsers?</h2>
+
+<table>
+<tr>
+<th>Browser</th>
+      <th>Version(s)</th>
+      <th>Tested?</th>
+      <th>Issues</th>
+    </tr>
+<tr>
+<td>Internet Explorer</td>
+      <td>6</td>
+      <td style="background-color:#ff7373; color:#ff0000;">Not tested</td>
+      <td></td>
+    </tr>
+<tr>
+<td>Internet Explorer</td>
+      <td>7</td>
+      <td style="background-color:#ff7373; color:#ff0000;">Not tested</td>
+      <td></td>
+    </tr>
+<tr>
+<td>Internet Explorer</td>
+      <td>8</td>
+      <td style="background-color:#65e080; color:#007d1c;">Tested</td>
+      <td></td>
+    </tr>
+<tr>
+<td>Internet Explorer</td>
+      <td>9</td>
+      <td style="background-color:#65e080; color:#007d1c;">Tested</td>
+      <td></td>
+    </tr>
+<tr>
+<td>Internet Explorer</td>
+      <td>10</td>
+      <td style="background-color:#ff7373; color:#ff0000;">Not tested</td>
+      <td></td>
+    </tr>
+<tr>
+<td>Firefox</td>
+      <td>13.0.1</td>
+      <td style="background-color:#65e080; color:#007d1c;">Tested</td>
+      <td></td>
+    </tr>
+<tr>
+<td>Chrome</td>
+      <td>20+</td>
+      <td style="background-color:#65e080; color:#007d1c;">Tested</td>
+      <td></td>
+    </tr>
+<tr>
+<td>Opera</td>
+      <td>11.61</td>
+      <td style="background-color:#ff7373; color:#ff0000;">Failed</td>
+      <td>Opera did not stop and warn user at all. Not supported as of yet.</td>
+    </tr>
+<tr>
+<td>Safari</td>
+      <td>5.1.7</td>
+      <td style="background-color:#65e080; color:#007d1c;">Tested</td>
+      <td></td>
+    </tr>
+</table><h2>Depenencies?</h2>
+
+<p>Just jQuery, tested with jQuery 1.7.2.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Jquery.warnunload.js maintained by <a href="https://github.com/cfurrow">cfurrow</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-33508071-3");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
